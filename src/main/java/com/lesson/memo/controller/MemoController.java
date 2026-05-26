@@ -46,8 +46,9 @@ public class MemoController {
 
     @PostMapping("/create")
     public String create(@ModelAttribute @Valid Memo memo,
-            BindingResult result) {
+            BindingResult result, Model model) {
         if (result.hasErrors()) {
+        	model.addAttribute("priorities", Priority.values());
             return "memo-form";
         }
 

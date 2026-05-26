@@ -34,7 +34,9 @@
 									th:value="${p}"
 									class="priority-radio">
 					 	 	<span th:text="${p.label}"></span>
-					 	</label>				 
+						 </label>			
+						<div th:if="${#fields.hasErrors('priority')}" th:errors="*{priority}" class="error-message"></div>
+								 			 
 					</div>
 				 </div>
 			
