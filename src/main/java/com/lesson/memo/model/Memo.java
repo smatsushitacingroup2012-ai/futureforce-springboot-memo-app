@@ -17,7 +17,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import lombok.Data;
 @Entity
 @Data
-
 public class Memo {
 
     @Id
