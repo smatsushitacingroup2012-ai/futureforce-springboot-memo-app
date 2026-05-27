@@ -27,7 +27,7 @@
 
 				<div class="form-group" >
 				     <label >優先度</label>
-					 <div class="priority-groupv" >
+					 <div class="priority-group" >
 					 	<label th:each="p : ${priorities}" class="priority-pill"  th:classappend="${p.name().toLowerCase()}">
 						 	<input type="radio"
 									th:field="*{priority}"

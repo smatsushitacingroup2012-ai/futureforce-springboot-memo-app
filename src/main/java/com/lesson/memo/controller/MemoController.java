@@ -48,7 +48,7 @@ public class MemoController {
     public String create(@ModelAttribute @Valid Memo memo,
             BindingResult result, Model model) {
         if (result.hasErrors()) {
-        	model.addAttribute("priorities", Priority.values());
+        		model.addAttribute("priorities", Priority.values());
             return "memo-form";
         }
 
@@ -74,6 +74,7 @@ public class MemoController {
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model, HttpServletResponse response) {
         if (model.containsAttribute("memo")) {
+        		model.addAttribute("priorities", Priority.values());
             return "memo-form";
         }
         model.addAttribute("priorities", Priority.values());
