@@ -18,7 +18,6 @@ import lombok.Data;
 @Entity
 @Data
 
-
 public class Memo {
 
     @Id
