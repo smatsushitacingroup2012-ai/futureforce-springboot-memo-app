@@ -45,13 +45,10 @@ public class MemoController {
     		List<Memo> memos = memoRepository.findAll();
         memos.sort(Comparator.comparing(Memo::getPriority));
     	 if (keyword==null || keyword.isEmpty() ) {
-        	 
     		 	model.addAttribute("memos", memoRepository.findAll());
-    		 	
          	return "memo-list";     
        }	else {
          	model.addAttribute("memos", memoRepository.findByTitleContainingOrContentContainingOrderByPriorityAsc(keyword , keyword));
-         	
          	return "memo-list";
        }
     }
