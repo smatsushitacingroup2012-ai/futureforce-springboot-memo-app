@@ -42,15 +42,17 @@ public class MemoController {
     @GetMapping("/search")
     public String search(@RequestParam(required = false) String keyword, Model model)
     {
-    		List<Memo> memos = memoRepository.findAll();
-        memos.sort(Comparator.comparing(Memo::getPriority));
-    	 if (keyword==null || keyword.isEmpty() ) {
-    		 	model.addAttribute("memos", memoRepository.findAll());
-         	return "memo-list";     
-       }	else {
-         	model.addAttribute("memos", memoRepository.findByTitleContainingOrContentContainingOrderByPriorityAsc(keyword , keyword));
-         	return "memo-list";
-       }
+    	 	List<Memo> memos;
+    	 	if (keyword==null || keyword.isEmpty() ) {
+    			memos = memoRepository.findAll();
+     	}else {
+    	   		memos =  memoRepository.findByTitleContainingOrContentContaining(keyword , keyword);
+         	
+       	}
+    	 		memos.sort(Comparator.comparing(Memo::getPriority));
+    	    		model.addAttribute("memos", memos);
+    	    		model.addAttribute("keyword", keyword);
+    	 		return "memo-list";
     }
 
     @GetMapping("/new")
