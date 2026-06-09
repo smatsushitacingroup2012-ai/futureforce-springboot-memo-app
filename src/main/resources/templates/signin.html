@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ログイン</title>
+</head>
+<body>
+
+<h1>ログイン</h1>
+
+<form th:action="@{/admin/signin}" method="post">
+
+    <div>
+        <label>メールアドレス</label>
+        <input type="email" name="email">
+    </div>
+
+    <div>
+        <label>パスワード</label>
+        <input type="password" name="password">
+    </div>
+	
+	<div th:if="${param.error}">
+	    メールアドレスまたはパスワードが違います
+	</div>
+	
+    <button type="submit">ログイン</button>
+	<a th:href="@{/admin/signup}" >登録</a>
+	
+</form>
+
+</body>
+</html>
